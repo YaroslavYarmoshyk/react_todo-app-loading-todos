@@ -18,10 +18,10 @@ export const App: React.FC = () => {
   const handleStatusChange = (newStatus: TodoStatus) => {
     setStatus(newStatus);
 
-    let filteredTodos = todos;
+    let filteredTodos = [...todos];
 
     if (newStatus !== 'all') {
-      filteredTodos = [...todos].filter(todo =>
+      filteredTodos = filteredTodos.filter(todo =>
         newStatus === 'completed' ? todo.completed : !todo.completed,
       );
     }
